@@ -7,7 +7,7 @@ url = "https://jsonplaceholder.typicode.com/comments"
 # Query Parameter를 dict 형태로 정의
 # key=value → userId=1
 params = {
-    "postId": 1
+    "postId": 5
 }
 
 # GET 요청 보내기
