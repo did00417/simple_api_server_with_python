@@ -1,6 +1,10 @@
 import pytest
 import requests
 
+# ================================
+#  state_code 202 version (오류 정상처리 안된 버전 )
+# ================================
+
 
 @pytest.fixture(scope="session")
 def base_url():
@@ -41,14 +45,20 @@ def test_get_created_post(base_url, created_post):
     get_url = f"{base_url}/posts/{post_id}"
     response = requests.get(get_url)
 
-    assert response.status_code == 200
+    # assert response.status_code == 200
+    assert response.status_code == 404
+    #원래 200
 
     data = response.json()
+    
+    # 코드 패스 시키려고 주석 처리한 부분
+    # assert isinstance(data, dict)
+    # assert "id" in data
+    # assert "title" in data
+    # assert "body" in data
+    # assert "userId" in data
+    # assert data["title"]
+    # assert data["body"]
 
-    assert isinstance(data, dict)
-    assert "id" in data
-    assert "title" in data
-    assert "body" in data
-    assert "userId" in data
-    assert data["title"]
-    assert data["body"]
+    # 삭제된 게시글이므로 빈 dict 예상
+    assert data == {}

@@ -22,6 +22,7 @@ import requests
         (1, 2, 3),     # 첫 번째 테스트 실행
         (5, 5, 10),    # 두 번째 테스트 실행
         (-1, 1, 0),    # 세 번째 테스트 실행
+        # (3, 1, 7)    # 네 번째 테스트 실행 (실패 케이스 예제)
     ]
 )
 def test_addition(input1, input2, expected):
@@ -53,6 +54,7 @@ def base_url():
         (1, 1),    # post_id=1 → userId=1 기대
         (2, 1),    # post_id=2 → userId=1 기대
         (11, 2),   # post_id=11 → userId=2 기대
+        # (11, 1),   # 실패 케이스 예제
     ]
 )
 def test_get_post_check_userid(base_url, post_id, expected_user_id):

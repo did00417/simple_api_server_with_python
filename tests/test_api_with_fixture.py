@@ -19,7 +19,7 @@ import requests
 # 이 fixture는
 # - API의 기본 URL을 제공함
 # - scope="session" 이므로
-#   pytest 전체 실행 동안 딱 1번만 만들어짐
+#   pytest 전체 실행 동안 딱 1번만 만들어짐⭐
 @pytest.fixture(scope="session")
 def base_url():
     return "https://jsonplaceholder.typicode.com"
@@ -104,7 +104,7 @@ def created_post(base_url, sample_post_payload):
 def test_get_created_post(base_url, created_post):
 
     # fixture에서 넘겨받은 게시글 ID
-    post_id = created_post["id"]
+    post_id = created_post["id"] #id : 101 (mock api라서 101부터 생성됨)
 
     # 조회 API URL
     get_url = f"{base_url}/posts/{post_id}"

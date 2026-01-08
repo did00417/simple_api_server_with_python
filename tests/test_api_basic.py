@@ -26,6 +26,7 @@ def test_get_post_by_id():
     # 3️⃣ HTTP 상태 코드 확인
     # 200이면 "요청 성공"
     assert response.status_code == 200
+    print(f"✅Status Code: {response.status_code}")
 
     # ----------------------------
     # 응답 본문(JSON) 검증
